@@ -1,0 +1,17 @@
+usage: term_proxy.py [-h] [-H PATTERN_FILES] [--help-patterns] [-e] [-l]
+                     [-p PROMPT] [-c ...]
+
+Run a forign terminal program with the ability to automate some interaction
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -H PATTERN_FILES, --pattern-file PATTERN_FILES
+                        A file specifying regex patterns for call/response
+                        functionality
+  --help-patterns       Show info on patterns files
+  -e, --include-err     Also apply pattern actions to stderr output
+  -l, --unlined-output  Don't assume the forign program always outputs full
+                        lines all at once
+  -p PROMPT, --prompt PROMPT
+                        Change prompt character(s)
+  -c ...                The command to execute
