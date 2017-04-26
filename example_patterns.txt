@@ -1,0 +1,6 @@
+pattern === action === translation
+
+Example pattern file. This example will save a Terraria server when a player
+disconnects.
+
+.* has left\.$ === respond === save
