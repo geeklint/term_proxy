@@ -15,3 +15,33 @@ optional arguments:
   -p PROMPT, --prompt PROMPT
                         Change prompt character(s)
   -c ...                The command to execute
+
+==============================================================================
+Information on Patterns Files:
+
+Patterns files allow some automation based on the output of the forign
+program. The first line of the pattern file should specify a seperator for the
+subsequent lines, by using it to seperate the words 'pattern', 'action', and
+'translation'. Example, using ' ===== ' as the seperator:
+    
+    pattern ===== action ===== translation
+
+The file follows these headers; the first element on each line should be a
+regular expression pattern, followed by an action, followed by a formatting
+string. If a line outputted by the forign program matches the pattern, the
+action will be applied. The following actions are supported:
+    
+    respond: the formatted string will be sent to the forign programs stdin
+    replace: the formatted string will be printed instead of the original line
+    print: the formatted string will be printed along with the original line
+    filter: nothing will be printed
+    function: the function named by the formatted string from the
+        user_functions file will be called.
+
+The formatting strings will be formatted with numbers in braces replaced by
+the group from the expression. Example, using the above seperator:
+
+    login: (w+) ===== replace ===== The user {1} has logged in.
+
+Whenever the forign program prints a login message the more verbose version
+will be printed to the screen.
